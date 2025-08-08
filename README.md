@@ -15,12 +15,12 @@ Docker-Composeを使用するのでインストールしてください。
 
 ```[bash]
 # ビルド
-docker build -t registry.kb/datealive/frontend:1.0.5 ./frontend --build-arg VITE_BACKEND_URL=/api
-docker build ./backend -t registry.kb/datealive/backend:1.0.4
+docker build -t registry/datealive/frontend:1.0.5 ./frontend --build-arg VITE_BACKEND_URL=/api
+docker build ./backend -t registry.kube.internal/datealive/backend:1.0.4
 
 # プッシュ
-docker push registry.kb/datealive/frontend:1.0.5
-docker push registry.kb/datealive/backend:1.0.4
+docker push registry.kube.internal/datealive/frontend:1.0.5
+docker push registry.kube.internal/datealive/backend:1.0.4
 
 # デプロイ
 kubectl apply -k ./k8s

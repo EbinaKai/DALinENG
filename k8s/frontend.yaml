@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.kb/datealive/frontend:1.0.5
+        image: registry.kube.internal/datealive/frontend:1.0.5
         resources:
           requests:
             memory: "64Mi"
@@ -48,10 +48,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - datealive.kb
+    - datealive.kube.internal
     secretName: datealive-tls
   rules:
-  - host: datealive.kb
+  - host: datealive.kube.internal
     http:
       paths:
         - path: /

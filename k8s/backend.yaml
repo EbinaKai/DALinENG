@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: registry.kb/datealive/backend:1.0.4
+        image: registry.kube.internal/datealive/backend:1.0.4
         env:
         - name: DB_HOST
           value: mysql-db.default
@@ -46,7 +46,7 @@ spec:
               name: datealive-app-secret
               key: deepl-apikey
         - name: FRONTEND_URL
-          value: "https://datealive.kb"
+          value: "https://datealive.kube.internal"
         resources:
           requests:
             memory: "64Mi"
@@ -77,10 +77,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - datealive.kb
+        - datealive.kube.internal
       secretName: datealive-tls
   rules:
-    - host: datealive.kb
+    - host: datealive.kube.internal
       http:
         paths:
           - path: /api(/|$)(.*)
